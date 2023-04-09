@@ -1,0 +1,16 @@
+span {
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.emoji-row {
+    border: 1px solid #000;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    transition: .1s background-color;
+}
+
+.emoji-row:hover {
+    background-color: rgb(219, 219, 219);
+}

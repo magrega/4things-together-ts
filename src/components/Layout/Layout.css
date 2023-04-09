@@ -1,0 +1,41 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    text-align: center;
+}
+
+.container > * {
+    padding-left: calc(100vw - 100%);
+}
+
+header {
+    background-color: #9ee493;
+    padding: 10px 0;
+}
+
+header a {
+    margin: 0 10px;
+    color: white;
+    text-decoration: none;
+}
+
+header a:hover {
+    text-decoration: underline;
+}
+
+main {
+    flex-grow: 1;
+    padding: 15px;
+    background-color: #abc8c0;
+}
+
+
+footer {
+    background-color: #daf7dc;
+    padding: 5px;
+}
+
+.active {
+    color: black;
+}

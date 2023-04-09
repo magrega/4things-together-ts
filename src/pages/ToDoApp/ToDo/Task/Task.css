@@ -1,0 +1,11 @@
+.important-task {
+    font-weight: bold;
+}
+
+.task__item {
+    width: 400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}

@@ -1,0 +1,35 @@
+.post {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    margin: 15px;
+    margin-bottom: 30px;
+    width: 200px;
+    max-height: 500px;
+    border: 1px solid #949494;
+    border-radius: 4px;
+}
+
+.post__title {
+    font-weight: bold;
+}
+
+.post__body {
+    flex-grow: 1;
+}
+
+.post__title,
+.post__body {
+    padding: 5px;
+}
+
+.post__author {
+    padding: 10px;
+    background-color: grey;
+    margin-bottom: 0;
+}
+
+.post__nameLink {
+    color: rgb(29, 59, 80);
+    cursor: pointer;
+}
