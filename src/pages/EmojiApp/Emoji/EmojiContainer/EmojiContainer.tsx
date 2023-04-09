@@ -1,4 +1,4 @@
-import {FC, PropsWithChildren} from 'react';
+import { FC, PropsWithChildren } from 'react';
 import { useState, useEffect } from 'react';
 import NotFound from "../NotFound/NotFound";
 import getEmojis from "../../../../services/emojiData";
@@ -27,7 +27,7 @@ const EmojiContainer: FC<PropsWithChildren<IEmojiContainerProps>> = ({ search, l
     useEffect(() => updateServerEmojis(), []);
 
     const filteredEmojis = serverEmojis.filter(emoji => emoji.title.toLowerCase().includes(search) || emoji.keywords.toLowerCase().includes(search));
-       
+
     if (filteredEmojis.length > limit) {
         filteredEmojis.length = limit;
     } else if (filteredEmojis.length === 0) {

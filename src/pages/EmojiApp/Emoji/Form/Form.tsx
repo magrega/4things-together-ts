@@ -1,8 +1,8 @@
-import {FC} from 'react';
+import { FC } from 'react';
 import './Form.css';
 
 interface IFormProps {
-    onFormChange: (e: React.ChangeEvent<{value: string}>) => void;
+    onFormChange: (e: React.ChangeEvent<{ value: string }>) => void;
     formValue: string;
 }
 

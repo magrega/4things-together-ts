@@ -1,7 +1,7 @@
-import {FC, PropsWithChildren} from 'react';
+import { FC, PropsWithChildren } from 'react';
 import './PostsContainer.css';
 
-const PostsContainer:FC<PropsWithChildren> = ({ children }) => {
+const PostsContainer: FC<PropsWithChildren> = ({ children }) => {
 
   return (
     <div className="posts-container">

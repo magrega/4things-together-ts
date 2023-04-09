@@ -1,7 +1,7 @@
 import { FC, useState } from "react";
 
 interface IFormProps {
-    setTasks: React.Dispatch<React.SetStateAction<{todo: string, id: number}[]>>,
+    setTasks: React.Dispatch<React.SetStateAction<{ todo: string, id: number }[]>>,
     setIds: React.Dispatch<React.SetStateAction<number>>,
     ids: number;
 }
@@ -17,15 +17,15 @@ const Form: FC<IFormProps> = ({ setTasks, setIds, ids }) => {
         setFormValue('');
     }
 
-    const onFormChange = (e: React.ChangeEvent<{value: string}>) => {
+    const onFormChange = (e: React.ChangeEvent<{ value: string }>) => {
         setFormValue(e.target.value);
     }
 
     return (
-            <form>
-                <input type="text" onChange={onFormChange} value={formValue} />
-                <button onClick={onAddTask} type="submit">add</button>
-            </form>
+        <form>
+            <input type="text" onChange={onFormChange} value={formValue} />
+            <button onClick={onAddTask} type="submit">add</button>
+        </form>
     );
 };
 

@@ -21,7 +21,7 @@ interface IPostProps {
     setIsModalLoading: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const Post:FC<IPostProps> = ({ post, setOpen, setUserModal, setIsModalLoading }) => {
+const Post: FC<IPostProps> = ({ post, setOpen, setUserModal, setIsModalLoading }) => {
 
     const openAuthorModal = () => {
         setIsModalLoading(true);

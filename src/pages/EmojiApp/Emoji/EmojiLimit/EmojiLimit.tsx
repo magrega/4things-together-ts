@@ -1,8 +1,8 @@
-import {FC} from 'react';
+import { FC } from 'react';
 import './EmojiLimit.css'
 
 interface IEmojiLimitProps {
-    getSelectedValue:  (e: React.ChangeEvent<{value: string}>) => void;
+    getSelectedValue: (e: React.ChangeEvent<{ value: string }>) => void;
 }
 
 const EmojiLimit: FC<IEmojiLimitProps> = ({ getSelectedValue }) => {
