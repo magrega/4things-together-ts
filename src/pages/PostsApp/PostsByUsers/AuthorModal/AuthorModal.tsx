@@ -5,7 +5,7 @@ import './AuthorModal.css';
 
 interface IModalProps {
   open: boolean;
-  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setOpen: (value: boolean) => void;
   userModal: User | null;
   isModalLoading: boolean;
 }

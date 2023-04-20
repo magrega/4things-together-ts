@@ -1,8 +1,9 @@
 import { FC, useState } from "react";
+import { ToDoItem } from "../Task/Task";
 
 interface IFormProps {
-    setTasks: React.Dispatch<React.SetStateAction<{ todo: string, id: number }[]>>,
-    setIds: React.Dispatch<React.SetStateAction<number>>,
+    setTasks: (value: ToDoItem[] | ((prevState: ToDoItem[]) => ToDoItem[])) => void,
+    setIds: (value: number) => void,
     ids: number;
 }
 

@@ -1,6 +1,6 @@
 import LoadingButton from '@mui/lab/LoadingButton';
 import { Box, CircularProgress } from '@mui/material';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import AuthorModal from './PostsByUsers/AuthorModal/AuthorModal';
 import Post from "./PostsByUsers/Post/Post";
 import PostsContainer from './PostsByUsers/PostsContainer/PostsContainer';
@@ -8,17 +8,24 @@ import { getPosts } from '../../services/getData';
 import './PostApp.css';
 import { User } from './PostsByUsers/Post/Post';
 
+export type TPost = {
+  body: string;
+  id: number;
+  title: string;
+  userId: number;
+}
+
 function PostsApp() {
   const [loading, setLoading] = useState(true);
   const [isButtonLoading, setIsButtonLoading] = useState(false);
   const [isModalLoading, setIsModalLoading] = useState(true);
   const [openModal, setOpenModal] = useState(false);
   const [userModal, setUserModal] = useState<User | null>(null);
-  const [posts, setPosts] = useState<any[] | undefined>(undefined);
+  const [posts, setPosts] = useState<TPost[] | undefined>(undefined);
   const [page, setPage] = useState(1);
   const [totalCount, setTotalCount] = useState(0);
 
-  const updatePostsFromServer = () => {
+  const updatePostsFromServer = useCallback(()=> {
     getPosts(page)
       .then(posts => {
         setTotalCount(Number(posts.headers.get('x-total-count')));
@@ -29,16 +36,14 @@ function PostsApp() {
         setLoading(false);
         setIsButtonLoading(false);
       })
-  };
+  }, [page]);
 
   const showMore = () => {
     setIsButtonLoading(true);
     setPage(prevValue => prevValue + 1);
   }
 
-  useEffect(() => {
-    updatePostsFromServer();
-  }, [page]);
+  useEffect(() => {updatePostsFromServer()}, [page, updatePostsFromServer]);
 
   if (loading) {
     return <div className='initial-spinner'><CircularProgress color="success" /></div>;
@@ -61,7 +66,7 @@ function PostsApp() {
           }
         </PostsContainer>
 
-        {posts!.length < totalCount && <LoadingButton
+        {(posts) && posts?.length < totalCount && <LoadingButton
           color="error"
           onClick={showMore}
           loading={isButtonLoading}

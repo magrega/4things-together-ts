@@ -1,11 +1,13 @@
 import { FC, useState } from 'react';
 import './Task.css';
 
+export type ToDoItem = {
+    todo: string;
+    id: number;
+}
+
 export interface ITaskProps {
-    task: {
-        todo: string;
-        id: number;
-    },
+    task: ToDoItem;
     removeTodoItem: (id: number) => void;
 }
 

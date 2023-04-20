@@ -1,11 +1,8 @@
-import Task from "../Task/Task";
+import Task, {ToDoItem} from "../Task/Task";
 import { FC } from 'react';
 
 export interface ITaskProps {
-    tasks: {
-        todo: string;
-        id: number;
-    }[],
+    tasks: ToDoItem[],
     removeTodoItem: (id: number) => void;
 }
 

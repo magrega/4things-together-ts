@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { getUser } from '../../../../services/getData';
+import { TPost } from '../../PostsApp';
 import './Post.css';
 
 export type User = {
@@ -10,15 +11,10 @@ export type User = {
 }
 
 interface IPostProps {
-    post: {
-        userId: number;
-        id: number;
-        title: string;
-        body: string;
-    },
-    setOpen: React.Dispatch<React.SetStateAction<boolean>>,
-    setUserModal: React.Dispatch<React.SetStateAction<User | null>>,
-    setIsModalLoading: React.Dispatch<React.SetStateAction<boolean>>
+    post: TPost;
+    setOpen: (value: boolean) => void;
+    setUserModal: (value: User | null) => void;
+    setIsModalLoading: (value: boolean) => void;
 }
 
 const Post: FC<IPostProps> = ({ post, setOpen, setUserModal, setIsModalLoading }) => {

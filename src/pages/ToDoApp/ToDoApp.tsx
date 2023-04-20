@@ -4,7 +4,7 @@ import Tasks from './ToDo/Tasks/Tasks';
 import './ToDoApp.css';
 
 function ToDoApp() {
-  const [tasks, setTasks] = useState([{ todo: "make this app", id: 1 }, { todo: "make classes work", id: 2 }, { todo: "polish the code", id: 3 }]);
+  const [tasks, setTasks]= useState([{ todo: "make this app", id: 1 }, { todo: "make classes work", id: 2 }, { todo: "polish the code", id: 3 }]);
   const [ids, setIds] = useState(4);
 
   const removeTodoItem = (id: number) => {
