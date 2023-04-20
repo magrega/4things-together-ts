@@ -1,8 +1,9 @@
 import './App.css';
+import { FC } from 'react';
 import { RouterProvider } from 'react-router-dom';
 import { router } from './pages/router';
 
-function App() {
+const App: FC = () => {
   return (
     <RouterProvider router={router} />
   );

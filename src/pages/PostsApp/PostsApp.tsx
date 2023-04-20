@@ -1,6 +1,6 @@
 import LoadingButton from '@mui/lab/LoadingButton';
 import { Box, CircularProgress } from '@mui/material';
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState, useCallback, FC } from 'react';
 import AuthorModal from './PostsByUsers/AuthorModal/AuthorModal';
 import Post from "./PostsByUsers/Post/Post";
 import PostsContainer from './PostsByUsers/PostsContainer/PostsContainer';
@@ -15,7 +15,7 @@ export type TPost = {
   userId: number;
 }
 
-function PostsApp() {
+const PostsApp: FC = () => {
   const [loading, setLoading] = useState(true);
   const [isButtonLoading, setIsButtonLoading] = useState(false);
   const [isModalLoading, setIsModalLoading] = useState(true);

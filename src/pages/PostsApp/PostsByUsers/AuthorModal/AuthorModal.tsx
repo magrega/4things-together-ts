@@ -10,7 +10,7 @@ interface IModalProps {
   isModalLoading: boolean;
 }
 
-export default function AuthorModal({ open, setOpen, userModal, isModalLoading }: IModalProps) {
+const AuthorModal = ({ open, setOpen, userModal, isModalLoading }: IModalProps) => {
 
   const handleModalClose = () => {
     setOpen(false);
@@ -47,3 +47,5 @@ export default function AuthorModal({ open, setOpen, userModal, isModalLoading }
     </Modal>
   );
 }
+
+export default AuthorModal;

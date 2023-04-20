@@ -2,11 +2,11 @@ import Task, {ToDoItem} from "../Task/Task";
 import { FC } from 'react';
 
 export interface ITaskProps {
-    tasks: ToDoItem[],
+    todos: ToDoItem[],
     removeTodoItem: (id: number) => void;
 }
 
-const Tasks: FC<ITaskProps> = ({ tasks, removeTodoItem }) => {
+const Tasks: FC<ITaskProps> = ({ todos: tasks, removeTodoItem }) => {
 
     return (
         <ul>

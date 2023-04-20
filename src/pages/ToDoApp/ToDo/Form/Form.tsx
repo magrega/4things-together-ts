@@ -2,12 +2,12 @@ import { FC, useState } from "react";
 import { ToDoItem } from "../Task/Task";
 
 interface IFormProps {
-    setTasks: (value: ToDoItem[] | ((prevState: ToDoItem[]) => ToDoItem[])) => void,
+    setTodos: (value: ToDoItem[] | ((prevState: ToDoItem[]) => ToDoItem[])) => void,
     setIds: (value: number) => void,
     ids: number;
 }
 
-const Form: FC<IFormProps> = ({ setTasks, setIds, ids }) => {
+const Form: FC<IFormProps> = ({ setTodos: setTasks, setIds, ids }) => {
 
     const [formValue, setFormValue] = useState('');
 

@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import { useState, FC } from 'react';
 import EmojiContainer from './Emoji/EmojiContainer/EmojiContainer';
 import EmojiLimit from './Emoji/EmojiLimit/EmojiLimit';
 import Form from './Emoji/Form/Form';
 import './EmojiApp.css';
 
 
-function EmojiApp() {
+const EmojiApp: FC = () => {
   const [formValue, setFormValue] = useState('');
   const [limit, setLimit] = useState<number>(15);
 
