@@ -1,4 +1,5 @@
-import Task, {ToDoItem} from "../Task/Task";
+import Task from "../Task/Task";
+import { ToDoItem } from "../../ToDoApp";
 import { FC } from 'react';
 
 export interface ITaskProps {

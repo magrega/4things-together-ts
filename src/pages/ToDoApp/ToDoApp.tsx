@@ -14,7 +14,7 @@ const ToDoApp: FC = () => {
     { todo: "make this app", id: 1 }, { todo: "make classes work", id: 2 }, { todo: "polish the code", id: 3 }
   ]
 
-  const [todos, setTodos] = useState(initialTodos);
+  const [todos, setTodos] = useState<ToDoItem[]>(initialTodos);
   const [ids, setIds] = useState(4);
 
   const removeTodoItem = (id: number) => {

@@ -1,12 +1,12 @@
 import LoadingButton from '@mui/lab/LoadingButton';
 import { Box, CircularProgress } from '@mui/material';
 import { useEffect, useState, useCallback, FC } from 'react';
+import { getPosts } from '../../services/getData';
+import { User } from './PostsByUsers/Post/Post';
 import AuthorModal from './PostsByUsers/AuthorModal/AuthorModal';
 import Post from "./PostsByUsers/Post/Post";
 import PostsContainer from './PostsByUsers/PostsContainer/PostsContainer';
-import { getPosts } from '../../services/getData';
 import './PostApp.css';
-import { User } from './PostsByUsers/Post/Post';
 
 export type TPost = {
   body: string;
@@ -21,7 +21,7 @@ const PostsApp: FC = () => {
   const [isModalLoading, setIsModalLoading] = useState(true);
   const [openModal, setOpenModal] = useState(false);
   const [userModal, setUserModal] = useState<User | null>(null);
-  const [posts, setPosts] = useState<TPost[] | undefined>(undefined);
+  const [posts, setPosts] = useState<TPost[] | undefined>();
   const [page, setPage] = useState(1);
   const [totalCount, setTotalCount] = useState(0);
 
@@ -29,7 +29,7 @@ const PostsApp: FC = () => {
     getPosts(page)
       .then(posts => {
         setTotalCount(Number(posts.headers.get('x-total-count')));
-        return posts.json();
+        return posts.json() as Promise<TPost[]>;
       })
       .then(newPosts => {
         setPosts(prevState => [...(prevState ?? []), ...newPosts]);

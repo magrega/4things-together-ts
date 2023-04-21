@@ -1,5 +1,5 @@
 import { FC, useState } from "react";
-import { ToDoItem } from "../Task/Task";
+import { ToDoItem } from "../../ToDoApp";
 
 interface IFormProps {
     setTodos: (value: ToDoItem[] | ((prevState: ToDoItem[]) => ToDoItem[])) => void,

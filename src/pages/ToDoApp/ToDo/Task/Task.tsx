@@ -1,10 +1,6 @@
 import { FC, useState } from 'react';
+import { ToDoItem } from "../../ToDoApp";
 import './Task.css';
-
-export type ToDoItem = {
-    todo: string;
-    id: number;
-}
 
 export interface ITaskProps {
     task: ToDoItem;

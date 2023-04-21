@@ -4,7 +4,6 @@ import EmojiLimit from './Emoji/EmojiLimit/EmojiLimit';
 import Form from './Emoji/Form/Form';
 import './EmojiApp.css';
 
-
 const EmojiApp: FC = () => {
   const [formValue, setFormValue] = useState('');
   const [limit, setLimit] = useState<number>(15);
