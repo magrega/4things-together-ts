@@ -4,6 +4,7 @@ import NotFound from "../NotFound/NotFound";
 import getEmojis from "../../../../services/emojiData";
 import EmojiRow from "../EmojiRow/EmojiRow";
 import './EmojiContainer.css';
+import { TEmojiItem } from '../../../../services/emojiData';
 
 interface IEmojiContainerProps {
     search: string;
@@ -12,7 +13,7 @@ interface IEmojiContainerProps {
 
 const EmojiContainer: FC<PropsWithChildren<IEmojiContainerProps>> = ({ search, limit }) => {
 
-    const [serverEmojis, setServerEmojis] = useState([{
+    const [serverEmojis, setServerEmojis] = useState<TEmojiItem[]>([{
         title: "100",
         symbol: "💯",
         keywords: "keyword"
