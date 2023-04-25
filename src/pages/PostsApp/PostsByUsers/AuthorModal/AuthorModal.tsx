@@ -8,16 +8,16 @@ interface IModalProps {
   setOpen: (value: boolean) => void;
   userModal: IUser | undefined;
   isModalLoading: boolean;
-  error: boolean;
+  errorText: string;
 }
 
-const AuthorModal = ({ open, setOpen, userModal, isModalLoading, error }: IModalProps) => {
+const AuthorModal = ({ open, setOpen, userModal, isModalLoading, errorText }: IModalProps) => {
 
   const handleModalClose = () => {
     setOpen(false);
   }
 
-  const content = error ? <span>There was an error connecting</span> : <>
+  const content = errorText ? <span>{errorText}</span> : <>
     <Typography variant="h6" component="h2">
       {userModal?.name}
     </Typography>

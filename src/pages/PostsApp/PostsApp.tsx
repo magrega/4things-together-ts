@@ -25,7 +25,7 @@ const PostsApp: FC = () => {
   const [page, setPage] = useState(1);
   const [totalCount, setTotalCount] = useState(0);
 
-  const [error, setError] = useState(false);
+  const [errorText, setErrorText] = useState('');
 
   const updatePostsFromServer = useCallback(() => {
     getPosts(page)
@@ -63,7 +63,7 @@ const PostsApp: FC = () => {
                 setOpen={setOpenModal}
                 setUserModal={setUserModal}
                 setIsModalLoading={setIsModalLoading}
-                setError={setError}
+                setErrorText={setErrorText}
               />
             })
           }
@@ -79,7 +79,7 @@ const PostsApp: FC = () => {
         </LoadingButton>}
       </Box>
 
-      <AuthorModal open={openModal} setOpen={setOpenModal} userModal={userModal} isModalLoading={isModalLoading} error={error}/>
+      <AuthorModal open={openModal} setOpen={setOpenModal} userModal={userModal} isModalLoading={isModalLoading} errorText={errorText}/>
     </>
   );
 }
