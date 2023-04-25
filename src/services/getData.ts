@@ -26,7 +26,7 @@ export const getUser = async (userId: number): Promise<IUser> => {
         const userData: IUser = await response.json();
 
         return userData;
-    } catch (error: any) {
-        throw new Error(`Error fetching user: ${error.message}`);
+    } catch (e) {        
+        throw new Error(`Error fetching user: ${(e as ApiError).message}`);
     }
 }
