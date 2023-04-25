@@ -14,7 +14,7 @@ const EmojiApp: FC = () => {
   }
 
   const getSelectedDropdownValue = (e: React.ChangeEvent<{ value: string }>) => {
-    setLimit(+e.target.value)
+    setLimit(Number(e.target.value))
   }
 
   return (

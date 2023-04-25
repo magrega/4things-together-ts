@@ -1,35 +1,29 @@
 import { FC } from 'react';
 import { getUser } from '../../../../services/getData';
+import { IUser } from '../../PostApp.interfaces';
 import { TPost } from '../../PostsApp';
 import './Post.css';
-
-export type User = {
-    name: string;
-    address: string;
-    email: string;
-    phone: string;
-}
 
 interface IPostProps {
     post: TPost;
     setOpen: (value: boolean) => void;
-    setUserModal: (value: User | null) => void;
+    setUserModal: (value: IUser | undefined) => void;
     setIsModalLoading: (value: boolean) => void;
+    setError: (value: boolean) => void;
 }
 
-const Post: FC<IPostProps> = ({ post, setOpen, setUserModal, setIsModalLoading }) => {
+const Post: FC<IPostProps> = ({ post, setOpen, setUserModal, setIsModalLoading, setError }) => {
 
     const openAuthorModal = () => {
         setIsModalLoading(true);
         setOpen(true);
         getUser(post.userId).then(user => {
-            setUserModal({
-                name: user.name,
-                address: `${user.address.city}, ${user.address.street}, ${user.address.suite}`,
-                email: user.email,
-                phone: user.phone
-            });
+            setUserModal(user);
             setIsModalLoading(false);
+        }).catch(e => {
+            setError(true);
+            setIsModalLoading(false);
+            console.log(e);
         });
     }
 

@@ -1,10 +1,9 @@
-import { FC, PropsWithChildren } from 'react';
-import { useState, useEffect } from 'react';
+import { FC, PropsWithChildren, useState, useEffect } from 'react';
 import NotFound from "../NotFound/NotFound";
-import getEmojis from "../../../../services/emojiData";
 import EmojiRow from "../EmojiRow/EmojiRow";
-import './EmojiContainer.css';
 import { TEmojiItem } from '../../../../services/emojiData';
+import getEmojis from "../../../../services/emojiData";
+import './EmojiContainer.css';
 
 interface IEmojiContainerProps {
     search: string;

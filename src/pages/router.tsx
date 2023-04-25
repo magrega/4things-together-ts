@@ -16,5 +16,4 @@ export const router = createBrowserRouter(createRoutesFromElements(
         <Route path='todo' element={<ToDoApp/>} />
         <Route path="*" element={<NotFoundPage />} />
     </Route>
-    
-))
+));

@@ -1,6 +1,6 @@
+import { FC } from 'react';
 import Task from "../Task/Task";
 import { ToDoItem } from "../../ToDoApp";
-import { FC } from 'react';
 
 export interface ITaskProps {
     todos: ToDoItem[],
@@ -10,9 +10,9 @@ export interface ITaskProps {
 const Tasks: FC<ITaskProps> = ({ todos: tasks, removeTodoItem }) => {
 
     return (
-        <ul>
-            {tasks.map(task => <Task key={task.id} task={task} removeTodoItem={removeTodoItem} />)}
-        </ul>
+        <>
+            {tasks.length === 0 ? <p>No tasks for now</p> : <ul>{tasks.map(task => <Task key={task.id} task={task} removeTodoItem={removeTodoItem} />)}</ul>}
+        </>
     );
 };
 
