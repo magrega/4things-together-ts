@@ -17,7 +17,7 @@ interface ApiError extends Error {
 
 export const getUser = async (userId: number): Promise<IUser> => {
     try {
-        const response = await fetch(`${_api}/userss/${userId}`);
+        const response = await fetch(`${_api}/users/${userId}`);
 
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
