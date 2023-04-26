@@ -9,7 +9,7 @@ const _api = "https://jsonplaceholder.typicode.com";
 
 export const getPosts = async (page = 1): Promise<Response> => {
     try {
-        const responsePosts = await fetch(`${_api}/posts?_limit=${5}&_page=${page}`);
+        const responsePosts = await fetch(`${_api}/posasdasdts?_limit=${5}&_page=${page}`);
 
         if (!responsePosts.ok) {
             throw new Error(`HTTP error! status: ${responsePosts.status}`);
