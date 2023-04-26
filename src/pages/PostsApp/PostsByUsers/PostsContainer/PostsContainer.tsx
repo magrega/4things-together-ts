@@ -1,11 +1,15 @@
 import { FC, PropsWithChildren } from 'react';
 import './PostsContainer.css';
 
-const PostsContainer: FC<PropsWithChildren> = ({ children }) => {
+interface IPostsContainerProps {
+  getPostsError: string;
+}
+
+const PostsContainer: FC<PropsWithChildren<IPostsContainerProps>> = ({ getPostsError, children }) => {
   
   return (
     <div className="posts-container">
-      {children}
+      {getPostsError ? getPostsError : children}
     </div>
   );
 };

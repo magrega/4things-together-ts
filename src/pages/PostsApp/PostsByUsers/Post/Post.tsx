@@ -9,10 +9,10 @@ interface IPostProps {
     setOpen: (value: boolean) => void;
     setUserModal: (value: IUser | undefined) => void;
     setIsModalLoading: (value: boolean) => void;
-    setErrorText: (value: string) => void;
+    setGetUserError: (value: string) => void;
 }
 
-const Post: FC<IPostProps> = ({ post, setOpen, setUserModal, setIsModalLoading, setErrorText }) => {
+const Post: FC<IPostProps> = ({ post, setOpen, setUserModal, setIsModalLoading, setGetUserError }) => {
 
     const openAuthorModal = () => {
         setIsModalLoading(true);
@@ -21,7 +21,7 @@ const Post: FC<IPostProps> = ({ post, setOpen, setUserModal, setIsModalLoading, 
             setUserModal(user);
             setIsModalLoading(false);
         }).catch(e => {
-            setErrorText(e.message);
+            setGetUserError(e.message);
             setIsModalLoading(false);
         });
     }

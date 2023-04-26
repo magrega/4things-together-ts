@@ -1,32 +1,38 @@
 import { IUser } from "../pages/PostsApp/PostApp.interfaces";
 
-const _api = "https://jsonplaceholder.typicode.com";
-
-export const getPosts = async (page = 1): Promise<Response> => {
-    return await fetch(`${_api}/posts?_limit=${5}&_page=${page}`);
-}
-
-// export const getUser = async (userId: number): Promise<IUser> => {
-//     return await fetch(`${_api}/users/${userId}`).then(user => user.json());
-// }
-
-interface ApiError extends Error {
+interface ApiError extends Error { //mock error type since jsonplaceholder doesn't have any error throw mechanism
     status: number;
     message: string;
 }
 
-export const getUser = async (userId: number): Promise<IUser> => {
-    try {
-        const response = await fetch(`${_api}/users/${userId}`);
+const _api = "https://jsonplaceholder.typicode.com";
 
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+export const getPosts = async (page = 1): Promise<Response> => {
+    try {
+        const responsePosts = await fetch(`${_api}/posts?_limit=${5}&_page=${page}`);
+
+        if (!responsePosts.ok) {
+            throw new Error(`HTTP error! status: ${responsePosts.status}`);
         }
 
-        const userData: IUser = await response.json();
+        return responsePosts;
+    } catch (e) {
+        throw new Error(`Error fetching posts: ${(e as ApiError).message}`);
+    }
+}
+
+export const getUser = async (userId: number): Promise<IUser> => {
+    try {
+        const responseUser = await fetch(`${_api}/users/${userId}`);
+
+        if (!responseUser.ok) {
+            throw new Error(`HTTP error! status: ${responseUser.status}`);
+        }
+
+        const userData: IUser = await responseUser.json();
 
         return userData;
-    } catch (e) {        
+    } catch (e) {
         throw new Error(`Error fetching user: ${(e as ApiError).message}`);
     }
 }

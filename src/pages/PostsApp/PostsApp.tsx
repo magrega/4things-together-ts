@@ -24,8 +24,9 @@ const PostsApp: FC = () => {
   const [posts, setPosts] = useState<TPost[] | undefined>();
   const [page, setPage] = useState(1);
   const [totalCount, setTotalCount] = useState(0);
+  const [getPostsError, setGetPostsError] = useState('');
+  const [getUserError, setGetUserError] = useState('');
 
-  const [errorText, setErrorText] = useState('');
 
   const updatePostsFromServer = useCallback(() => {
     getPosts(page)
@@ -35,6 +36,10 @@ const PostsApp: FC = () => {
       })
       .then(newPosts => {
         setPosts(prevState => [...(prevState ?? []), ...newPosts]);
+        setLoading(false);
+        setIsButtonLoading(false);
+      }).catch(e => {
+        setGetPostsError(e.message);
         setLoading(false);
         setIsButtonLoading(false);
       })
@@ -54,7 +59,7 @@ const PostsApp: FC = () => {
   return (
     <>
       <Box className="posts-app">
-        <PostsContainer>
+        <PostsContainer getPostsError={getPostsError}>
           {
             posts?.map((post) => {
               return <Post
@@ -63,7 +68,7 @@ const PostsApp: FC = () => {
                 setOpen={setOpenModal}
                 setUserModal={setUserModal}
                 setIsModalLoading={setIsModalLoading}
-                setErrorText={setErrorText}
+                setGetUserError={setGetUserError}
               />
             })
           }
@@ -79,7 +84,7 @@ const PostsApp: FC = () => {
         </LoadingButton>}
       </Box>
 
-      <AuthorModal open={openModal} setOpen={setOpenModal} userModal={userModal} isModalLoading={isModalLoading} errorText={errorText}/>
+      <AuthorModal open={openModal} setOpen={setOpenModal} userModal={userModal} isModalLoading={isModalLoading} getUserError={getUserError}/>
     </>
   );
 }
